@@ -1,0 +1,13 @@
+Python 2 has ASCII str() types, separate unicode(), but no byte type.
+
+Now, in Python 3, we finally have Unicode (utf-8) strings, and 2 byte classes: byte and bytearrays.
+
+
+xrange
+The usage of xrange() is very popular in Python 2.x for creating an iterable object, e.g., in a for-loop or list/set-dictionary-comprehension.
+The behavior was quite similar to a generator (i.e., “lazy evaluation”), but here the xrange-iterable is not exhaustible - meaning, you could iterate over it infinitely.
+
+Thanks to its “lazy-evaluation”, the advantage of the regular range() is that xrange() is generally faster if you have to iterate over it only once (e.g., in a for-loop). However, in contrast to 1-time iterations, it is not recommended if you repeat the iteration multiple times, since the generation happens every time from scratch!
+
+In Python 3, the range() was implemented like the xrange() function so that a dedicated xrange() function does not exist anymore (xrange() raises a NameError in Python 3).
+
